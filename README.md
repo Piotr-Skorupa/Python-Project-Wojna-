@@ -34,4 +34,14 @@ Projekt będzie wykorzystywał bibliotekę Pygame służącą do produkcji gier.
 9. Naciśnięcie przycisku spowoduje przeniesienie do tabeli wyników.
 
 ####Tabela Wyników:
-1. 
+1. Po kliknięciu w menu głównym "Tabela Wyników" lub po zakonczeniu rozgrywki oczom użytkownika ukaże się ekran tabeli
+2. Na górze bedzie widniał napis "Tabela Wyników"
+3. Zaraz pod nim znajduje się tabelka z kolumnami "nr" "imie" "rezultat" "data"
+4. Pod tabelą przycisk "Wróć"
+
+####O  Autorze:
+Na samej górze pojawi sie napis "O Autorze",a poniżej kilka linijek o mnie i o projekcie oraz o jego powstawaniu
+
+####Wyjście:
+Gdy użytkownik kliknie w "Wyjście" program zakończy swoje działanie natychmiastowo. Nie uwzględniam zapytania "Czy napewno..?", ponieważ dochodzę do wniosku, że gdy ktoś klika "Wyjście" to napewno chce wyjść.
+
