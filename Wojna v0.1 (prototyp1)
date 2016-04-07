@@ -1,0 +1,123 @@
+import random
+#tworzymy klase kart do gry
+class Card:
+    """Karta do gry"""
+    RANKS = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+    SUITS = ["c","d","h","s"]
+    def __init__(self,rank,suit,strange):
+        self.rank = rank
+        self.suit = suit
+        self.strange = strange
+    def __str__(self):
+        rep = self.rank+self.suit+" sila: %(self.strange)d" %{"self.strange":self.strange}
+        return rep
+
+
+dwapik = Card(rank="2", suit="s", strange=2)
+dwakier = Card(rank="2", suit="h", strange=2)
+dwakaro = Card(rank="2", suit="d", strange=2)
+dwatrefl = Card(rank="2", suit="c", strange=2)
+
+trzypik = Card(rank="3", suit="s", strange=3)
+trzykier = Card(rank="3", suit="h", strange=3)
+trzykaro = Card(rank="3", suit="d", strange=3)
+trzytrefl = Card(rank="3", suit="c", strange=3)
+
+czterypik = Card(rank="4", suit="s", strange=4)
+czterykier = Card(rank="4", suit="h", strange=4)
+czterykaro = Card(rank="4", suit="d", strange=4)
+czterytrefl = Card(rank="4", suit="c", strange=4)
+
+piecpik = Card(rank="5", suit="s", strange=5)
+pieckier = Card(rank="5", suit="h", strange=5)
+pieckaro = Card(rank="5", suit="d", strange=5)
+piectrefl = Card(rank="5", suit="c", strange=5)
+
+szescpik = Card(rank="6", suit="s", strange=6)
+szesckier = Card(rank="6", suit="h", strange=6)
+szesckaro = Card(rank="6", suit="d", strange=6)
+szesctrefl = Card(rank="6", suit="c", strange=6)
+
+siedempik = Card(rank="7", suit="s", strange=7)
+siedemkier = Card(rank="7", suit="h", strange=7)
+siedemkaro = Card(rank="7", suit="d", strange=7)
+siedemtrefl = Card(rank="7", suit="c", strange=7)
+
+osiempik = Card(rank="8", suit="s", strange=8)
+osiemkier = Card(rank="8", suit="h", strange=8)
+osiemkaro = Card(rank="8", suit="d", strange=8)
+osiemtrefl = Card(rank="8", suit="c", strange=8)
+
+dziewiecpik = Card(rank="9", suit="s", strange=9)
+dziewieckier = Card(rank="9", suit="h", strange=9)
+dziewieckaro = Card(rank="9", suit="d", strange=9)
+dziewiectrefl = Card(rank="9", suit="c", strange=9)
+
+dziesiecpik = Card(rank="10", suit="s", strange=10)
+dziesieckier = Card(rank="10", suit="h", strange=10)
+dziesieckaro = Card(rank="10", suit="d", strange=10)
+dziesiectrefl = Card(rank="10", suit="c", strange=10)
+
+waletpik = Card(rank="J", suit="s", strange=11)
+waletkier = Card(rank="J", suit="h", strange=11)
+waletkaro = Card(rank="J", suit="d", strange=11)
+walettrefl = Card(rank="J", suit="c", strange=11)
+
+damapik = Card(rank="Q", suit="s", strange=12)
+damakier = Card(rank="Q", suit="h", strange=12)
+damakaro = Card(rank="Q", suit="d", strange=12)
+damatrefl = Card(rank="Q", suit="c", strange=12)
+
+krolpik = Card(rank="K", suit="s", strange=13)
+krolkier = Card(rank="K", suit="h", strange=13)
+krolkaro = Card(rank="K", suit="d", strange=13)
+kroltrefl = Card(rank="K", suit="c", strange=13)
+
+aspik = Card(rank="A", suit="s", strange=14)
+askier = Card(rank="A", suit="h", strange=14)
+askaro = Card(rank="A", suit="d", strange=14)
+astrefl = Card(rank="A", suit="c", strange=14)
+
+joker = Card(rank="JOKER", suit="", strange=15)
+joker2 = Card(rank="JOKER", suit="", strange=15)
+
+#pakujemy karty do tali
+
+talia = [dwapik, dwakaro, dwakier, dwatrefl, trzykaro, trzykier, trzypik, trzytrefl, czterykaro, czterykier, czterypik,
+         czterytrefl, piectrefl, pieckaro, piecpik, pieckier, szesckaro, szesckier, szescpik, szesctrefl, siedemkaro,
+         siedemkier, siedempik, siedemtrefl, osiemkaro, osiemkier, osiempik, osiemtrefl, dziewieckaro, dziewieckier,
+         dziewiecpik, dziewiectrefl, dziesieckaro, dziesieckier, dziesiecpik, dziesiectrefl, waletkaro, waletkier,
+         waletpik, walettrefl, damakaro, damakier, damapik, damatrefl, krolkaro, krolkier, krolpik, kroltrefl, askaro,
+         askier, aspik, astrefl, joker, joker2]
+
+#tworzymy funkcje tasujaca karty
+
+def tasowanie(talia):
+    random.shuffle(talia)
+    return talia
+
+#funkcja rozdajaca karty graczowi i komputerowi
+
+def rozdawanie(talia):
+    global gracz
+    global komp
+    gracz = talia[:27]
+    komp = talia[27:]
+
+
+
+tasing = tasowanie(talia)
+rozdawing = rozdawanie(talia)
+wynikgracza = 0
+wynikkompa = 0
+for znak in gracz:
+    if gracz[znak.strange] > komp[znak.strange]:
+        wynikgracza = wynikgracza + 1
+
+    elif komp[znak.strange] > gracz[znak.strange]:
+        wynikkompa = wynikkompa + 1
+
+if wynikgracza > wynikkompa:
+    print "Wygrales"
+else:
+    print "Przegrales"
